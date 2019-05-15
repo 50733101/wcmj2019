@@ -1,8 +1,23 @@
-<h1>課程簡介及認知</h1>
-<p></p>
-<p>CMSimfly (<a href="https://github.com/chiamingyen/cmsimfly">https://github.com/chiamingyen/cmsimfly)</a><span> </span>是一套簡單的網際內容管理系統, 採用 Flask 網際框架, 以 Beautifulsoup 解讀分頁內容。</p>
-<p><img alt="" height="471" src="/images/gocycle4.png" width="587"/></p>
-<h1>Test</h1>
+<h1>課程認知及簡介</h1>
+<p>網際內容管理，課程目的「利用網路快速運算及連結能力進行數位化協同設計」。</p>
+<ul>
+<li><strong>自我認知</strong></li>
+</ul>
+<p>這學期雖然前半段都在懵懵懂懂中度過，影片看了無數次、上課認真聽都還是不懂，起先以為我是「自以為認真」所以才會如此，向其他學長詢問後，他們表示這是正常情況，但只要跟隨著上課進度以及影片內容慢慢架構起來就會步上軌道。目前看起來，大致正確。</p>
+<p><img alt="" height="360" src="/images/課表.jpg" width="600"/></p>
+<h1>近端配置及管理</h1>
+<p>網路連線設定</p>
+<ul>
+<li><strong>Windows Network Setting</strong></li>
+</ul>
+<p>大部分情況下，在BGA0810教室皆是<span>透過 IPv4 協定下的 DHCP 與 NAT 上網，且使用 192.168.1.* 的網路位址。</span></p>
+<p><span><img caption="false" height="376" src="/images/變更介面卡內容.png" width="600"/></span></p>
+<ul>
+<li><strong>Chrome Proxy</strong><strong></strong></li>
+</ul>
+<p><span>然後以 NAT 的一組外部 IP 上網, 通常必須設定 Proxy Server 為 http://proxy.kmol.info:3128 後上網會比較順暢，但第十三周為特殊情況僅剩下140.130.17.3可用。</span></p>
+<p><img alt="" height="375" src="/images/proxy.png" width="600"/></p>
+<h1>倉儲改版</h1>
 <p>甚麼?!竟然有考古題，太棒了~期中考不用擔心了，趕快按下按鈕取得考古題吧!</p>
 <p></p>
 <p><img alt="" height="280" src="/images/0.jpg" width="496"/></p>
@@ -31,54 +46,7 @@ function myFunction2() {
 }
 // ]]></script>
 </p>
-<h1>實習任務</h1>
-<h2>Week1</h2>
-<p>學習如何一次上傳多個圖檔, 並且學會如何引用, 並且設定圖片大小.</p>
-<p><img alt="" height="471" src="/images/gocycle4.png" width="587"/></p>
-<p><img alt="" height="500" src="/images/greentick.png" width="500"/></p>
-<h2>Week2</h2>
-<p>網路與電腦程式只是工具, 任何人希望與遠端的系統或成員溝通, 可以使用網路.</p>
-<p>任何人想要利用電腦的能力解決問題, 就必須學會編寫電腦程式, 與電腦溝通.</p>
-<p></p>
-<div class="line number1 index0 alt2"><code class="html plain"></code></div>
-<p><button onclick="myFunction()">請問如何證明台灣與中國為不同國家?</button></p>
-<p id="demo"></p>
-<p>
-<script>// <![CDATA[
-function myFunction() {
- //document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
- //document.getElementById("demo").innerHTML = ''彼此通話需藉由國際電話!";
- alert("彼此通話需藉由國際電話!");
-}
-// ]]></script>
-</p>
-<h2>Week3</h2>
-<p>根據 <a href="https://2019wcm.blogspot.com/2019/03/ungit.html">https://2019wcm.blogspot.com/2019/03/ungit.html</a> 的設定, 完成 ungit 配置.</p>
-<h1>git http 與 ssh</h1>
-<p>利用 ssh 對 git 改版, 必須使用  home/.ssh/config 設定, 才能透過 proxy 伺服器進行連線, 由於在 IPv6 環境下, 必須要透過 proxy 才能對 Git 連線, 因此若無 config, 無法對遠端改版</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ProxyCommand y:/PortableGit/mingw64/bin/connect.exe -H 140.130.17.53:3128 %h %p
 
-Host github.com
-User git
-Port 22
-Hostname github.com
-
-IdentityFile "y:\home\.ssh\id_rsa"
-
-TCPKeepAlive yes
-IdentitiesOnly yes
-
-Host ssh.github.com
-User git
-Port 443
-Hostname ssh.github.com
-
-IdentityFile "y:\home\.ssh\id_rsa"
-
-TCPKeepAlive yes
-IdentitiesOnly yes</pre>
-<p></p>
-<h1>近端配置</h1>
 <h1>目錄結構</h1>
 <p>第二位想要編輯這裡</p>
 <p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/9A-hg32eD-s" width="560"></iframe></p>
@@ -530,7 +498,6 @@ COPY TO CLIPBOARD	</pre>
 <p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/KZnCu1Sq1vo" width="560"></iframe></p>
 <p>就是這樣編輯的</p>
 <p>接下來修改這裡</p>
-
 <p>
 <script>// <![CDATA[
 function myFunction2() {
