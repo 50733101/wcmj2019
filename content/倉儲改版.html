@@ -89,13 +89,13 @@ $(document).ready(doSearch);
 <p><button onclick="myFunction()">取得考古題</button></p>
 <p id="demo"></p>
 <p>
-<script>// <![CDATA[
+<script>
 function myFunction() {
  //document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
  //document.getElementById("demo").innerHTML = ''按讚加分享此網頁，小編私訊你!";
  alert("按讚加分享此網頁，小編私訊你!");
 }
-// ]]></script>
+</script>
 </p>
 <p></p>
 <div class="line number1 index0 alt2"><code class="html plain"></code></div>
@@ -103,28 +103,28 @@ function myFunction() {
 <p><button onclick="myFunction2()">TRY IT</button></p>
 <p></p>
 <p>
-<script>// <![CDATA[
+<script>
 function myFunction2() {
  document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
  //document.getElementById("demo").innerHTML = ''按讚加分享此網頁，小編私訊你!";
  //alert("按讚加分享此網頁，小編私訊你!");
 }
-// ]]></script>
+</script>
 </p>
 <p>ROC Flag</p>
 <!-- 導入 Brython 標準程式庫 -->
-<script src="/get_page/cmsimde/static/brython.js"></script>
-<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+<script src="./../static/brython.js"></script>
+<script src="./../static/brython_stdlib.js"></script>
 <p></p>
 <!-- 啟動 Brython -->
-<script>// <![CDATA[
+<script>
 window.onload=function(){
 // 設定 data/py 為共用程式路徑
 brython({debug:1, pythonpath:['./../data/py']});
 }
-// ]]></script>
+</script>
 <p><canvas height="400" id="plotarea" width="600"></canvas></p>
-<script type="text/python">// <![CDATA[
+<script type="text/python">
 # 導入 doc
 from browser import document as doc
 import math
@@ -176,4 +176,4 @@ ctx.closePath()
 # 填色設為白色
 ctx.fillStyle = '#fff'
 ctx.fill()
-// ]]></script><br />隨身系統 << <a href='隨身系統.html'>Previous</a> <a href='目錄結構.html'>Next</a> >> 目錄結構</div></section></div></body></html>
+</script><br />隨身系統 << <a href='隨身系統.html'>Previous</a> <a href='目錄結構.html'>Next</a> >> 目錄結構</div></section></div></body></html>
