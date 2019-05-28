@@ -147,22 +147,127 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">近端配置及管理 << <a href='近端配置及管理.html'>Previous</a> <a href='隨身系統.html'>Next</a> >> 隨身系統<br /><h1>網路連線設定</h1>
-<p>遇無法順利上網應依序以下設定是否無誤；若還是不能發現獲解決問題，請立即舉手向老師詢問/求助於同組同學。</p>
-<ul>
-<li><strong>檢查網路線是否連接正常</strong></li>
-<li><strong>Windows Network Setting</strong></li>
-</ul>
-<p>大部分情況下，在BGA0810教室皆是<span>透過 IPv4 協定下的 DHCP 與 NAT 上網，且使用 192.168.1.* 的網路位址。</span></p>
-<p><span><img caption="false" height="376" src="./../images/變更介面卡內容.png" width="600"/></span></p>
-<p><img alt="" height="607" src="./../images/ipconfig.jpg" width="600"/><img alt="" height="1011" src="./../images/123456.jpg" width="999"/></p>
-<ul>
-<li><strong>Chrome Proxy</strong><strong></strong></li>
-</ul>
-<p><span>然後以 NAT 的一組外部 IP 上網, 通常必須設定 Proxy Server 為 http://proxy.kmol.info:3128 後上網會比較順暢，但第十三周為特殊情況僅剩下140.130.17.3可用。</span></p>
-<p><img alt="" height="375" src="./../images/proxy.png" width="600"/></p>
+    <div id="tipue_search_content">倉儲內容改版 << <a href='倉儲內容改版.html'>Previous</a> <a href='校園資源的應用.html'>Next</a> >> 校園資源的應用<br /><h1>ROC Flag</h1>
+<!-- 導入 Brython 標準程式庫 -->
+<script src="./../static/brython.js"></script>
+<script src="./../static/brython_stdlib.js"></script>
 <p></p>
-<br />近端配置及管理 << <a href='近端配置及管理.html'>Previous</a> <a href='隨身系統.html'>Next</a> >> 隨身系統</div>
+<!-- 啟動 Brython -->
+<script>
+window.onload=function(){
+// 設定 data/py 為共用程式路徑
+brython({debug:1, pythonpath:['./../data/py']});
+}
+</script>
+<p><canvas height="400" id="plotarea" width="600"></canvas></p>
+<script type="text/python">
+# 導入 doc
+from browser import document as doc
+import math
+
+# 準備繪圖畫布
+canvas = doc["plotarea"]
+ctx = canvas.getContext("2d")
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+circle_x = flag_w/4
+circle_y = flag_h/4
+# 先畫滿地紅
+ctx.fillStyle='rgb(255, 0, 0)'
+ctx.fillRect(0,0,flag_w,flag_h)
+# 再畫青天
+ctx.fillStyle='rgb(0, 0, 150)'
+ctx.fillRect(0,0,flag_w/2,flag_h/2)
+# 畫十二道光芒白日
+ctx.beginPath()
+star_radius = flag_w/8
+angle = 0
+for i in range(24):
+    angle += 5*math.pi*2/12
+    toX = circle_x + math.cos(angle)*star_radius
+    toY = circle_y + math.sin(angle)*star_radius
+    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
+    if (i):
+        ctx.lineTo(toX, toY)
+    else:
+        ctx.moveTo(toX, toY)
+ctx.closePath()
+# 將填色設為白色
+ctx.fillStyle = '#fff'
+ctx.fill()
+# 白日:藍圈
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為藍色
+ctx.fillStyle = 'rgb(0, 0, 149)'
+ctx.fill()
+# 白日:白心
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為白色
+ctx.fillStyle = '#fff'
+ctx.fill()
+</script>
+<p><canvas height="400" id="plotarea2" width="600"></canvas></p>
+<script type="text/python">
+# 導入 doc
+from browser import document as doc
+import math
+
+# 準備繪圖畫布
+canvas = doc["plotarea2"]
+ctx = canvas.getContext("2d")
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+circle_x = flag_w/4
+circle_y = flag_h/4
+# 先畫滿地紅
+ctx.fillStyle='rgb(255, 192, 203)'
+ctx.fillRect(0,0,flag_w,flag_h)
+# 再畫青天
+ctx.fillStyle='rgb(127, 255, 212)'
+ctx.fillRect(0,0,flag_w/2,flag_h/2)
+# 畫十二道光芒白日
+ctx.beginPath()
+star_radius = flag_w/8
+angle = 0
+for i in range(24):
+    angle += 5*math.pi*2/12
+    toX = circle_x + math.cos(angle)*star_radius
+    toY = circle_y + math.sin(angle)*star_radius
+    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
+    if (i):
+        ctx.lineTo(toX, toY)
+    else:
+        ctx.moveTo(toX, toY)
+ctx.closePath()
+# 將填色設為白色
+ctx.fillStyle = 'rgb(0, 0, 0)'
+ctx.fill()
+# 白日:藍圈
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為藍色
+ctx.fillStyle = 'rgb(127, 255, 212)'
+ctx.fill()
+# 白日:白心
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為白色
+ctx.fillStyle = 'rgb(0, 0, 0)'
+ctx.fill()
+</script>
+<br />倉儲內容改版 << <a href='倉儲內容改版.html'>Previous</a> <a href='校園資源的應用.html'>Next</a> >> 校園資源的應用</div>
         
     <!-- footer -->
       <div class="container">

@@ -20,9 +20,11 @@
 </ul>
 <p><span>然後以 NAT 的一組外部 IP 上網, 通常必須設定 Proxy Server 為 http://proxy.kmol.info:3128 後上網會比較順暢，但第十三周為特殊情況僅剩下140.130.17.3可用。</span></p>
 <p><img alt="" height="375" src="/images/proxy.png" width="600"/></p>
-<p></p><h2>隨身系統</h2>
+<p></p>
+<h2>隨身系統</h2>
 <p>隨身碟當中通常內設的格式為FAT32/exFAT<span>，若要載入大型檔案(4GB以上)將會受阻，所以在要放入Ubuntu 18.04 vdi 檔案之前, 需先將隨身碟格式化為 NTFS，否則就算隨身碟內仍有許多檔案仍會無法執行成功。<span style="color: #ff0000;">(格式化前記得先將資料備份!)</span></span></p>
-<p><span style="color: #000000;"><img alt="" height="338" src="/images/格式化.png" width="600"/></span></p><h1>倉儲內容改版</h1>
+<p><span style="color: #000000;"><img alt="" height="338" src="/images/格式化.png" width="600"/></span></p>
+<h1>倉儲內容改版</h1>
 <p>甚麼?!竟然有考古題，太棒了~期中考不用擔心了，趕快按下按鈕取得考古題吧!</p>
 <p></p>
 <p><img alt="" height="280" src="/images/0.jpg" width="496"/></p>
@@ -52,7 +54,7 @@ function myFunction2() {
 }
 </script>
 </p>
-<h2>ROC Fla//</h2>
+<h2>ROC Flag</h2>
 <!-- 導入 Brython 標準程式庫 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -172,135 +174,9 @@ ctx.closePath()
 ctx.fillStyle = 'rgb(0, 0, 0)'
 ctx.fill()
 </script>
-<p>
-<script>
-function myFunction2() {
- document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
- //document.getElementById("demo").innerHTML = ''按讚加分享此網頁，小編私訊你!";
- //alert("按讚加分享此網頁，小編私訊你!");
-}
-</script>
-</p><h1>校園資源的應用</h1><h2>ROC Flag</h2>
-<!-- 導入 Brython 標準程式庫 -->
-<script src="/static/brython.js"></script>
-<script src="/static/brython_stdlib.js"></script>
-<p></p>
-<!-- 啟動 Brython -->
-<script>
-window.onload=function(){
-// 設定 data/py 為共用程式路徑
-brython({debug:1, pythonpath:['./../data/py']});
-}
-</script>
-<p><canvas height="400" id="plotarea" width="600"></canvas></p>
-<script type="text/python">
-# 導入 doc
-from browser import document as doc
-import math
-
-# 準備繪圖畫布
-canvas = doc["plotarea"]
-ctx = canvas.getContext("2d")
-# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
-# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
-# 以下採用 canvas 原始座標繪圖
-flag_w = canvas.width
-flag_h = canvas.height
-circle_x = flag_w/4
-circle_y = flag_h/4
-# 先畫滿地紅
-ctx.fillStyle='rgb(255, 0, 0)'
-ctx.fillRect(0,0,flag_w,flag_h)
-# 再畫青天
-ctx.fillStyle='rgb(0, 0, 150)'
-ctx.fillRect(0,0,flag_w/2,flag_h/2)
-# 畫十二道光芒白日
-ctx.beginPath()
-star_radius = flag_w/8
-angle = 0
-for i in range(24):
-    angle += 5*math.pi*2/12
-    toX = circle_x + math.cos(angle)*star_radius
-    toY = circle_y + math.sin(angle)*star_radius
-    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
-    if (i):
-        ctx.lineTo(toX, toY)
-    else:
-        ctx.moveTo(toX, toY)
-ctx.closePath()
-# 將填色設為白色
-ctx.fillStyle = '#fff'
-ctx.fill()
-# 白日:藍圈
-ctx.beginPath()
-ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
-ctx.closePath()
-# 填色設為藍色
-ctx.fillStyle = 'rgb(0, 0, 149)'
-ctx.fill()
-# 白日:白心
-ctx.beginPath()
-ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
-ctx.closePath()
-# 填色設為白色
-ctx.fillStyle = '#fff'
-ctx.fill()
-</script>
-<p><canvas height="400" id="plotarea2" width="600"></canvas></p>
-<script type="text/python">
-# 導入 doc
-from browser import document as doc
-import math
-
-# 準備繪圖畫布
-canvas = doc["plotarea2"]
-ctx = canvas.getContext("2d")
-# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
-# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
-# 以下採用 canvas 原始座標繪圖
-flag_w = canvas.width
-flag_h = canvas.height
-circle_x = flag_w/4
-circle_y = flag_h/4
-# 先畫滿地紅
-ctx.fillStyle='rgb(255, 192, 203)'
-ctx.fillRect(0,0,flag_w,flag_h)
-# 再畫青天
-ctx.fillStyle='rgb(127, 255, 212)'
-ctx.fillRect(0,0,flag_w/2,flag_h/2)
-# 畫十二道光芒白日
-ctx.beginPath()
-star_radius = flag_w/8
-angle = 0
-for i in range(24):
-    angle += 5*math.pi*2/12
-    toX = circle_x + math.cos(angle)*star_radius
-    toY = circle_y + math.sin(angle)*star_radius
-    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
-    if (i):
-        ctx.lineTo(toX, toY)
-    else:
-        ctx.moveTo(toX, toY)
-ctx.closePath()
-# 將填色設為白色
-ctx.fillStyle = 'rgb(0, 0, 0)'
-ctx.fill()
-# 白日:藍圈
-ctx.beginPath()
-ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
-ctx.closePath()
-# 填色設為藍色
-ctx.fillStyle = 'rgb(127, 255, 212)'
-ctx.fill()
-# 白日:白心
-ctx.beginPath()
-ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
-ctx.closePath()
-# 填色設為白色
-ctx.fillStyle = 'rgb(0, 0, 0)'
-ctx.fill()
-</script><h1>期中報告</h1>
+<h1>校園資源的應用</h1>
+<h1>期中報告</h1>
 <p>影片網址:<a href="https://www.youtube.com/watch?v=wGmXj0XgLqU">https://www.youtube.com/watch?v=wGmXj0XgLqU</a></p>
 <p><span style="color: #ff0000; background-color: #ffffff;">開啟字幕，獲得註解<img alt="laughing" src="/static/tinymce4/tinymce/plugins/emoticons/img/smiley-laughing.gif"/></span></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/wGmXj0XgLqU" width="560"></iframe></p>
-<h1>期末報告</h1>
+<h1>期末(w17)報告</h1>
