@@ -26,7 +26,8 @@
 <p><span style="color: #000000;"><img alt="" height="338" src="/images/格式化.png" width="600"/></span></p>
 <h1>倉儲內容改版</h1>
 <p>改版過程影片</p>
-<p><a href="https://www.youtube.com/watch?v=HZTn_KjqBZg&amp;t=3s">https://www.youtube.com/watch?v=HZTn_KjqBZg&amp;t=3s</a></p><h2>小彈出窗及亂數產生器</h2>
+<p><a href="https://www.youtube.com/watch?v=HZTn_KjqBZg&amp;t=3s">https://www.youtube.com/watch?v=HZTn_KjqBZg&amp;t=3s</a></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/HZTn_KjqBZg" width="560"></iframe></p><h2>小彈出窗及亂數產生器</h2>
 <p>甚麼?!竟然有考古題，太棒了~期中考不用擔心了，趕快按下按鈕取得考古題吧!</p>
 <p></p>
 <p><img alt="" height="280" src="/images/0.jpg" width="496"/></p>
@@ -42,7 +43,6 @@ function myFunction() {
 }
 </script>
 </p>
-<p></p>
 <div class="line number1 index0 alt2"><code class="html plain"></code></div>
 <p id="demo"></p>
 <p><button onclick="myFunction2()">TRY IT</button></p>
@@ -55,7 +55,33 @@ function myFunction2() {
  //alert("按讚加分享此網頁，小編私訊你!");
 }
 </script>
-</p><h2>ROC Flag</h2>
+</p>
+<p><span style="color: #ff0000;"><strong>小彈窗程式碼如下</strong></span></p>
+<p><span style="color: #000000;"><strong></strong></span></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">&lt;div class="line number1 index0 alt2"&gt;&lt;code class="html plain"&gt;&lt;/code&gt;&lt;/div&gt;
+&lt;p&gt;&lt;button onclick="myFunction()"&gt;取得考古題&lt;/button&gt;&lt;/p&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;script&gt;// &lt;![CDATA[
+function myFunction() {
+ //document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
+ //document.getElementById("demo").innerHTML = ''按讚加分享此網頁，小編私訊你!";
+ alert("按讚加分享此網頁，小編私訊你!");
+}
+// ]]&gt;&lt;/script&gt;
+&lt;/p&gt;</pre>
+<p></p>
+<p><span style="color: #ff0000;"><strong>亂數抽取程式碼如下</strong></span></p>
+<p><span style="color: #000000;"><strong></strong></span></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">&lt;script&gt;// &lt;![CDATA[
+function myFunction2() {
+ document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
+ //document.getElementById("demo").innerHTML = ''按讚加分享此網頁，小編私訊你!";
+ //alert("按讚加分享此網頁，小編私訊你!");
+}
+// ]]&gt;&lt;/script&gt;</pre>
+<p></p><h2>ROC Flag</h2>
+<p><strong>Flag 1</strong></p>
 <!-- 導入 Brython 標準程式庫 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -68,6 +94,7 @@ brython({debug:1, pythonpath:['./../data/py']});
 }
 </script>
 <p><canvas height="400" id="plotarea" width="600"></canvas></p>
+<p><span style="color: #ff0000;"><strong>Flag 1 程式碼如下</strong></span></p>
 <script type="text/python">
 # 導入 doc
 from browser import document as doc
@@ -121,6 +148,72 @@ ctx.closePath()
 ctx.fillStyle = '#fff'
 ctx.fill()
 </script>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 導入 Brython 標準程式庫 --&gt;
+&lt;script src="/static/brython.js"&gt;&lt;/script&gt;
+&lt;script src="/static/brython_stdlib.js"&gt;&lt;/script&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;!-- 啟動 Brython --&gt;
+&lt;script&gt;// &lt;![CDATA[
+window.onload=function(){
+// 設定 data/py 為共用程式路徑
+brython({debug:1, pythonpath:['./../data/py']});
+}
+// ]]&gt;&lt;/script&gt;
+&lt;p&gt;&lt;canvas height="400" id="plotarea" width="600"&gt;&lt;/canvas&gt;&lt;/p&gt;
+&lt;script type="text/python"&gt;// &lt;![CDATA[
+# 導入 doc
+from browser import document as doc
+import math
+
+# 準備繪圖畫布
+canvas = doc["plotarea"]
+ctx = canvas.getContext("2d")
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+circle_x = flag_w/4
+circle_y = flag_h/4
+# 先畫滿地紅
+ctx.fillStyle='rgb(255, 0, 0)'
+ctx.fillRect(0,0,flag_w,flag_h)
+# 再畫青天
+ctx.fillStyle='rgb(0, 0, 150)'
+ctx.fillRect(0,0,flag_w/2,flag_h/2)
+# 畫十二道光芒白日
+ctx.beginPath()
+star_radius = flag_w/8
+angle = 0
+for i in range(24):
+    angle += 5*math.pi*2/12
+    toX = circle_x + math.cos(angle)*star_radius
+    toY = circle_y + math.sin(angle)*star_radius
+    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
+    if (i):
+        ctx.lineTo(toX, toY)
+    else:
+        ctx.moveTo(toX, toY)
+ctx.closePath()
+# 將填色設為白色
+ctx.fillStyle = '#fff'
+ctx.fill()
+# 白日:藍圈
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為藍色
+ctx.fillStyle = 'rgb(0, 0, 149)'
+ctx.fill()
+# 白日:白心
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為白色
+ctx.fillStyle = '#fff'
+ctx.fill()
+// ]]&gt;&lt;/script&gt;</pre>
+<p><strong><span style="color: #000000;">Flag 2</span></strong></p>
 <p><canvas height="400" id="plotarea2" width="600"></canvas></p>
 <script type="text/python">
 # 導入 doc
@@ -142,13 +235,13 @@ ctx.fillStyle='rgb(255, 192, 203)'
 ctx.fillRect(0,0,flag_w,flag_h)
 # 再畫青天
 ctx.fillStyle='rgb(127, 255, 212)'
-ctx.fillRect(0,0,flag_w/2,flag_h/2)
+ctx.fillRect(0,0,flag_w,flag_h/2)
 # 畫十二道光芒白日
 ctx.beginPath()
 star_radius = flag_w/8
 angle = 0
 for i in range(24):
-    angle += 5*math.pi*2/12
+    angle += 5*math.pi*2/30
     toX = circle_x + math.cos(angle)*star_radius
     toY = circle_y + math.sin(angle)*star_radius
     # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
@@ -175,7 +268,316 @@ ctx.closePath()
 ctx.fillStyle = 'rgb(0, 0, 0)'
 ctx.fill()
 </script>
-<h1>校園資源的應用</h1>
+<p>Flag 2 程式碼</p><h2>骰子遊戲</h2>
+<script type="text/javascript">
+var cwidth = 400;
+    var cheight = 300;
+    var dicex = 50;
+    var dicey = 50;
+    var dicewidth = 100;
+    var diceheight = 100;
+    var dotrad = 6;
+    var ctx;
+    var dx;
+    var dy;
+    var firstturn = true;
+    var point;
+function throwdice() {
+    var sum;
+    var ch = 1+Math.floor(Math.random()*6);
+    sum = ch;
+    dx = dicex;
+    dy = dicey;
+    drawface(ch);
+    dx = dicex + 150;
+    ch=1 + Math.floor(Math.random()*6);
+    sum += ch;
+    drawface(ch);
+    if (firstturn) {
+        switch(sum) {
+            case 7:
+            case 11:
+              document.f.outcome.value="You win!";
+              break;
+            case 2:
+            case 3:
+            case 12:
+              document.f.outcome.value="You lose!";
+              break;
+            default:
+              point = sum;
+              document.f.pv.value=point;
+              firstturn = false;
+              document.f.stage.value="Need follow-up throw.";
+              document.f.outcome.value="   ";
+        }
+    }
+    else {
+        switch(sum) {
+        case point:
+           document.f.outcome.value="You win!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+           break;
+        case 7:
+           document.f.outcome.value="You lose!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+        }
+            }
+}
+function drawface(n) {
+  ctx = document.getElementById('canvas').getContext('2d');  
+  ctx.lineWidth = 5;
+  ctx.clearRect(dx,dy,dicewidth,diceheight);
+  ctx.strokeRect(dx,dy,dicewidth,diceheight)
+  var dotx;
+  var doty;
+  ctx.fillStyle = "#009966";
+    switch(n) {
+        case 1:
+         draw1();
+         break;
+        case 2:
+         draw2();
+         break;
+        case 3:
+         draw2();
+         draw1();
+         break;
+        case 4:
+         draw4();
+         break;
+        case 5:
+         draw4();
+         draw1();
+         break;
+        case 6:
+         draw4();
+         draw2mid();
+         break;
+          
+    }
+}
+function draw1() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + .5*dicewidth;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw2() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw4() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + diceheight-3*dotrad;  //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+ 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill(); 
+}
+function draw2mid() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy + .5*diceheight; //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+</script>
+<p><canvas height="300" id="canvas" width="400"> Your browser doesn't support the HTML5 element canvas. </canvas> <br/> <button onclick="throwdice();">Throw dice </button></p>
+<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form>
+<p><strong><span style="color: #ff0000;">遊戲程式碼如下</span></strong></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">&lt;script type="text/javascript"&gt;// &lt;![CDATA[
+var cwidth = 400;
+    var cheight = 300;
+    var dicex = 50;
+    var dicey = 50;
+    var dicewidth = 100;
+    var diceheight = 100;
+    var dotrad = 6;
+    var ctx;
+    var dx;
+    var dy;
+    var firstturn = true;
+    var point;
+function throwdice() {
+    var sum;
+    var ch = 1+Math.floor(Math.random()*6);
+    sum = ch;
+    dx = dicex;
+    dy = dicey;
+    drawface(ch);
+    dx = dicex + 150;
+    ch=1 + Math.floor(Math.random()*6);
+    sum += ch;
+    drawface(ch);
+    if (firstturn) {
+        switch(sum) {
+            case 7:
+            case 11:
+              document.f.outcome.value="You win!";
+              break;
+            case 2:
+            case 3:
+            case 12:
+              document.f.outcome.value="You lose!";
+              break;
+            default:
+              point = sum;
+              document.f.pv.value=point;
+              firstturn = false;
+              document.f.stage.value="Need follow-up throw.";
+              document.f.outcome.value="   ";
+        }
+    }
+    else {
+        switch(sum) {
+        case point:
+           document.f.outcome.value="You win!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+           break;
+        case 7:
+           document.f.outcome.value="You lose!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+        }
+            }
+}
+function drawface(n) {
+  ctx = document.getElementById('canvas').getContext('2d');  
+  ctx.lineWidth = 5;
+  ctx.clearRect(dx,dy,dicewidth,diceheight);
+  ctx.strokeRect(dx,dy,dicewidth,diceheight)
+  var dotx;
+  var doty;
+  ctx.fillStyle = "#009966";
+    switch(n) {
+        case 1:
+         draw1();
+         break;
+        case 2:
+         draw2();
+         break;
+        case 3:
+         draw2();
+         draw1();
+         break;
+        case 4:
+         draw4();
+         break;
+        case 5:
+         draw4();
+         draw1();
+         break;
+        case 6:
+         draw4();
+         draw2mid();
+         break;
+          
+    }
+}
+function draw1() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + .5*dicewidth;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw2() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw4() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + diceheight-3*dotrad;  //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+ 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill(); 
+}
+function draw2mid() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy + .5*diceheight; //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+// ]]&gt;&lt;/script&gt;
+&lt;p&gt;&lt;canvas height="300" id="canvas" width="400"&gt; Your browser doesn't support the HTML5 element canvas. &lt;/canvas&gt; &lt;br&gt; &lt;button onclick="throwdice();"&gt;Throw dice &lt;/button&gt;&lt;/p&gt;
+&lt;form id="f" name="f"&gt;Stage: &lt;input name="stage" type="text" value="First Throw"&gt; Point: &lt;input name="pv" type="text" value="   "&gt; Outcome: &lt;input name="outcome" type="text" value="     "&gt;&lt;/form&gt;
+</pre>
+<p></p><h1>校園資源的應用</h1>
 <h1>期中報告</h1>
 <p>影片網址:<a href="https://www.youtube.com/watch?v=wGmXj0XgLqU">https://www.youtube.com/watch?v=wGmXj0XgLqU</a></p>
 <p><span style="color: #ff0000; background-color: #ffffff;">開啟字幕，獲得註解<img alt="laughing" src="/static/tinymce4/tinymce/plugins/emoticons/img/smiley-laughing.gif"/></span></p>
