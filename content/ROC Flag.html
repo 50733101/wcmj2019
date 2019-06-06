@@ -225,7 +225,7 @@ def blueWhite(ctx, x, y, flag_w, flag_h):
     # 再畫青天
     ctx.fillStyle='rgb(127, 255, 212)'
     #ctx.fillRect(x-flag_w/2, y-flag_h/2, flag_w/4, flag_h/4)
-    ctx.fillRect(x-flag_w, flag_h/2, flag_w, flag_h/2)
+    ctx.fillRect(0, 0, flag_w, flag_h/2)
     # 畫十二道光芒白日
     ctx.beginPath()
     star_radius = flag_w/8
@@ -267,7 +267,7 @@ circle_y = flag_h/2
 # 先畫滿地紅
 ctx.fillStyle='rgb(255, 192, 203)'
 ctx.fillRect(0,0,flag_w,flag_h)
-blueWhite(ctx, circle_x, circle_y, flag_w, flag_h/2)
+blueWhite(ctx, circle_x, circle_y, flag_w, flag_h)
 </script>
 <p></p>
 <p><span style="color: #ff0000;"><strong>Flag 2 程式碼</strong></span></p>

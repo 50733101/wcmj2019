@@ -37,7 +37,8 @@
 <p><span style="color: #000000;"><img alt="" height="338" src="/images/格式化.png" width="600"/></span></p>
 <h2>虛擬主機配置與設定</h2>
 <p><a href="https://www.youtube.com/watch?v=_6x7O2TtKZI">https://www.youtube.com/watch?v=_6x7O2TtKZI</a></p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/_6x7O2TtKZI" width="560"></iframe></p><h1>倉儲內容改版</h1>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/_6x7O2TtKZI" width="600"></iframe></p>
+<p></p><h1>倉儲內容改版</h1>
 <p>改版過程影片</p>
 <p><a href="https://www.youtube.com/watch?v=HZTn_KjqBZg&amp;t=3s">https://www.youtube.com/watch?v=HZTn_KjqBZg&amp;t=3s</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/HZTn_KjqBZg" width="560"></iframe></p><h2>小彈出窗及亂數產生器</h2>
@@ -240,7 +241,7 @@ def blueWhite(ctx, x, y, flag_w, flag_h):
     # 再畫青天
     ctx.fillStyle='rgb(127, 255, 212)'
     #ctx.fillRect(x-flag_w/2, y-flag_h/2, flag_w/4, flag_h/4)
-    ctx.fillRect(x-flag_w, flag_h/2, flag_w, flag_h/2)
+    ctx.fillRect(0, 0, flag_w, flag_h/2)
     # 畫十二道光芒白日
     ctx.beginPath()
     star_radius = flag_w/8
@@ -281,8 +282,8 @@ circle_x = flag_w/2
 circle_y = flag_h/2
 # 先畫滿地紅
 ctx.fillStyle='rgb(255, 192, 203)'
-ctx.fillRect(0,0,flag_w,flag_h)
-blueWhite(ctx, circle_x, circle_y, flag_w, flag_h/2)
+ctx.fillRect(0,0,flag_w,flag_h/2)
+blueWhite(ctx, circle_x, circle_y, flag_w, flag_h)
 </script>
 <p></p>
 <p><span style="color: #ff0000;"><strong>Flag 2 程式碼</strong></span></p>
