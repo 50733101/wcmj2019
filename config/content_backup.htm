@@ -6,6 +6,11 @@
 <p>這學期雖然前半段都在懵懵懂懂中度過，影片看了無數次、上課認真聽都還是不懂，起先以為我是「自以為認真」所以才會如此，向其他學長詢問後，他們表示這是正常情況，但只要跟隨著上課進度以及影片內容慢慢架構起來就會步上軌道。目前看起來，大致正確。</p>
 <p><img alt="" height="360" src="/images/課表.jpg" width="600"/></p>
 <p><img alt="" height="578" src="/images/wcm.png" width="600"/></p><h1>近端配置及管理</h1>
+<p><span style="color: #ffffff; background-color: #000000;">git clone</span><span style="color: #000000; background-color: #ffffff;"> - 將Github倉儲內容複製到隨身系統中。</span></p>
+<p><span style="color: #ffffff; background-color: #000000;"><span>ssh-keygen -t rsa -b 4096 -C "This is my key"<span style="color: #000000; background-color: #ffffff;"> - 建立成對的SSH鑰匙，並將公開的上傳至Github，此後即可利用SSH進行資料推送。</span></span></span></p>
+<ul>
+<li>Github倉儲設立及git clone 相關過程</li>
+</ul>
 <p><a href="https://www.youtube.com/watch?v=XPNyL6OEfUc&amp;t=1s">https://www.youtube.com/watch?v=XPNyL6OEfUc&amp;t=1s</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/XPNyL6OEfUc" width="560"></iframe></p><h2>網路連線設定</h2>
 <p>遇無法順利上網應依序以下設定是否無誤；若還是不能發現獲解決問題，請立即舉手向老師詢問/求助於同組同學。</p>
@@ -15,14 +20,16 @@
 </ul>
 <p>大部分情況下，在BGA0810教室皆是<span>透過 IPv4 協定下的 DHCP 與 NAT 上網，且使用 192.168.1.* 的網路位址。</span></p>
 <p><span><img caption="false" height="376" src="/images/變更介面卡內容.png" width="600"/></span></p>
+<p><span style="color: #ffffff; background-color: #000000;">ipconfig<span style="color: #000000; background-color: #ffffff;"> - 查詢IP位置及相關資訊。</span></span></p>
 <p><img alt="" height="607" src="/images/ipconfig.jpg" width="600"/><img alt="" height="1011" src="/images/123456.jpg" width="999"/></p>
 <ul>
 <li><strong>Chrome Proxy</strong><strong></strong></li>
 </ul>
+<p><span style="color: #ffffff; background-color: #000000;">nslookup<span style="color: #000000; background-color: #ffffff;"> - 查詢可用的porxy 地址。</span></span></p>
+<p><span style="color: #ff0000; background-color: #000000;"><span style="background-color: #ffffff;">(藉由Network Connect從家中進入校內取得140.130.1.2)</span></span></p>
+<p><span style="color: #ffffff; background-color: #000000;"><span style="color: #000000; background-color: #ffffff;"><img alt="" height="338" src="/images/nslookup.png" width="600"/></span></span></p>
 <p><span>然後以 NAT 的一組外部 IP 上網, 通常必須設定 Proxy Server 為 http://proxy.kmol.info:3128 後上網會比較順暢，但第十三周為特殊情況僅剩下140.130.17.3可用。</span></p>
-<p><img alt="" height="375" src="/images/proxy.png" width="600"/></p>
-<p></p>
-<h2>隨身系統</h2>
+<p><img alt="" height="375" src="/images/proxy.png" width="600"/></p><h2>隨身系統</h2>
 <p>隨身碟當中通常內設的格式為FAT32/exFAT<span>，若要載入大型檔案(4GB以上)將會受阻，所以在要放入Ubuntu 18.04 vdi 檔案之前, 需先將隨身碟格式化為 NTFS，否則就算隨身碟內仍有許多檔案仍會無法執行成功。<span style="color: #ff0000;">(格式化前記得先將資料備份!)</span></span></p>
 <ul>
 <li>FAT32(不建議使用)</li>
@@ -42,15 +49,16 @@
 <p style="text-align: left;"><a href="https://www.youtube.com/watch?v=1zBHgscMpXo&amp;feature=youtu.be">https://www.youtube.com/watch?v=1zBHgscMpXo&amp;feature=youtu.be</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/1zBHgscMpXo" width="560"></iframe></p>
 <h2>虛擬主機配置與設定</h2>
+<p><span style="color: #ffffff; background-color: #000000;">sudo halt</span></p>
+<p><span style="color: #ffffff; background-color: #000000;">sudo apt install nginx</span></p>
+<p><span style="color: #ffffff; background-color: #000000;">ping -t 192.168.2.103</span></p>
+<p><span style="color: #ffffff; background-color: #000000;"></span></p>
 <p><a href="https://www.youtube.com/watch?v=_6x7O2TtKZI">https://www.youtube.com/watch?v=_6x7O2TtKZI</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/_6x7O2TtKZI" width="600"></iframe></p>
-<p></p>
-<h1>倉儲內容改版</h1>
+<p></p><h1>倉儲內容改版</h1>
 <ul>
 <li><strong>改版過程中重要指令整理</strong></li>
 </ul>
-<p><span style="color: #ffffff; background-color: #000000;">git clone</span><span style="color: #000000; background-color: #ffffff;"> - 將Github倉儲內容複製到隨身系統中。</span></p>
-<p><span style="color: #ffffff; background-color: #000000;"><span>ssh-keygen -t rsa -b 4096 -C "This is my key"<span style="color: #000000; background-color: #ffffff;"> - 建立成對的SSH鑰匙，並將公開的上傳至Github，此後即可利用SSH進行資料推送。</span></span></span></p>
 <p><span style="color: #ffffff; background-color: #000000;">git status<span style="color: #000000; background-color: #ffffff;"> - 查看改版後尚未推送前的資料。</span></span></p>
 <p><span style="color: #ffffff; background-color: #000000;">git add .<span style="color: #000000; background-color: #ffffff;"> - 將改版後的資料拍快照。</span></span></p>
 <p><span style="color: #ffffff; background-color: #000000;">git  commit<span style="color: #000000; background-color: #ffffff;"> - 將快照資料展開，準備推送。</span></span></p>
